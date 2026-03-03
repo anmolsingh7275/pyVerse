@@ -1,9 +1,21 @@
-table = [
-    ["Name", "Age", "City"],
-    ["John", 25, "London"],
-    ["Alice", 22, "Paris"],
-    ["Bob", 24, "New York"]
-]
+import sqlite3
 
-for row in table:
-    print(row)
+conn = sqlite3.connect("students.db")
+cursor = conn.cursor()
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS students (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    age INTEGER
+)
+""")
+
+cursor.execute("INSERT INTO students (name, age) VALUES ('Alice', 23)")
+
+conn.commit()
+
+cursor.execute("SELECT * FROM students")
+print(cursor.fetchall())
+
+conn.close()
