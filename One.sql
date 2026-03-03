@@ -1,8 +1,8 @@
 table = [
     ["Name", "Age", "City"],
-    ["John", 24, "London"],
-    ["Alice", 23, "Paris"],
-    ["Bob", 24, "New York"]
+    ["John", 26, "London"],
+    ["Alice", 26, "Paris"],
+    ["Bob", 26, "New York"]
 ]
 
 for row in table:
